@@ -1,4 +1,4 @@
-#Variables
+# Variables
 La variables en Js son contenedores para almacenar información que vamos a utilizar posteriormente.
 
 #Alcances
