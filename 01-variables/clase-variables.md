@@ -1,6 +1,19 @@
 # Variables
 La variables en Js son contenedores para almacenar información que vamos a utilizar posteriormente.
 
+JavaScript es un lenguaje de programación con el ámbito global como ámbito, visibilidad o scope predeterminado,Esto significa que una variable declarada fuera de una función es una variable global y es pasada por referencia a scopes descendientes o herederos, Por ejemplo:
+
+`````````
+var texto = "global";
+function actualizar() {
+    texto = "local";
+    console.log(texto); // local
+}
+actualizar();
+console.log(texto); // local
+
+
+`````````
 #Alcances
 
 #Var vs Let vs Cons
