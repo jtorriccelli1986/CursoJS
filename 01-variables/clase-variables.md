@@ -7,7 +7,7 @@ La variables en Js son contenedores para almacenar información que vamos a util
 JavaScript es un lenguaje de programación con el ámbito global como ámbito, visibilidad o scope predeterminado,Esto significa que una variable declarada fuera de una función es una variable global, por ejemplo:
 
 
-`````````
+`````````javascript
 var texto = "global";
 
 function actualizar() {
@@ -43,7 +43,7 @@ console.log(texto); // global
 
 
 
-# Diferencias entre Let , Const y Var
+# Declaraciones con let y const
 
 ## Let
 El uso de let al momento de declarar una variable nos permite poder tener un mejor control sobre la declaración de la misma a medida que desarrollamos nuestra aplicación , esto debido a que el uso de let nos va a generar un error si queremos volver a declarar una variable con el mismo nombre, por ejemplo:
@@ -101,10 +101,10 @@ function foo() {
 foo();
 `````````
 
-
-*no permite redaclarar variables
-*posee un scope (no puedo acceder a una variable declarada dentro de una función desde fuera de la función)
-*el scope es de tipo bloque (todo lo que este dentro de llaves)
+### recordar
+* no permite redaclarar variables
+* posee un scope (no puedo acceder a una variable declarada dentro de una función desde fuera de la función)
+* el scope es de tipo bloque (todo lo que este dentro de llaves)
 
 
 ## Const
@@ -132,11 +132,11 @@ const i = 0;
 i = 1; // TypeError: Assignment to constant variable
 `````````
 
-
-*no permite redaclarar variables
-*posee un scope (no puedo acceder a una variable declarada dentro de una función desde fuera de la función)
-*el scope es de tipo bloque (todo lo que este dentro de llaves)
-*las constanste tienen un valor constante que nunca va a cambiar , esto lo podemos usar para variables que sabemos que en el transcurso de mi aplicación no va a cambiar (esto no aplica para los arreglos);
+### recordar
+* no permite redaclarar variables
+* posee un scope (no puedo acceder a una variable declarada dentro de una función desde fuera de la función)
+* el scope es de tipo bloque (todo lo que este dentro de llaves)
+* las constanste tienen un valor constante que nunca va a cambiar , esto lo podemos usar para variables que sabemos que en el transcurso de mi aplicación no va a cambiar (esto no aplica para los arreglos);
 
 
 
@@ -191,7 +191,7 @@ var y = 2; Inicializa y
 
 
 ## Resumen 
-*var declara una variable de scope global o local para la función sin importar el ámbito de bloque. Permite hoisting.
-*let declara una variable de scope global, local para la función o de bloque. Es reasignable y no permite hoisting.
-*const declara una variable de scope global, local para la función o de bloque. No es reasignable, pero es mutable. No permite hoisting.
-*puedes usar var, let o const para programar , pero actualmente ya no debemos usar var ya que esto nos puede llevar a cometer errores ante la posiblidad de poder redeclarar las variables.
+* var declara una variable de scope global o local para la función sin importar el ámbito de bloque. Permite hoisting.
+* let declara una variable de scope global, local para la función o de bloque. Es reasignable y no permite hoisting.
+* const declara una variable de scope global, local para la función o de bloque. No es reasignable, pero es mutable. No permite hoisting.
+* puedes usar var, let o const para programar , pero actualmente ya no debemos usar var ya que esto nos puede llevar a cometer errores ante la posiblidad de poder redeclarar las variables.
