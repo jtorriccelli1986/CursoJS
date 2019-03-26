@@ -39,15 +39,104 @@ actualizar();
 
 console.log(texto); // global
 
-
 `````````
 
 
 
+# Diferencias entre Let , Const y Var
+
+## Let
+El uso de let al momento de declarar una variable nos permite poder tener un mejor control sobre la declaración de la misma a medida que desarrollamos nuestra aplicación , esto debido a que el uso de let nos va a generar un error si queremos volver a declarar una variable con el mismo nombre, por ejemplo:
+
+`````````
+let nombres="Juan carlos";
+let nombres="Diego"
+`````````
+
+Si ejecutamos el codigo estos nos va a generar un error indicando lo siguiente Uncaught SyntaxError: Identifier 'nombre' has already been declared , esto debido a que el uso de let no permite que la variable pueda ser declara nuevamente.
 
 
+Un bloque en JavaScript se puede entender como “lo que queda entre dos corchetes”, ya sean definiciones de funciones o bloques if, while, for y loops similares. Si una variable es declarada con let en el ámbito global o en el de una función, la variable pertenecerá al ámbito global o al ámbito de la función respectivamente, de forma similar a como ocurría con var.
+
+`````````
+
+let i = 0;
+function recorrer() {
+    i = 1;
+    let j = 2;
+    if(true) {
+        console.log(i); // 1
+        console.log(j); // 2
+    }
+}
+recorrer();
+`````````
+
+Por ejemplo, en el código de ejemplo la variable i es una variable global y la variable j es una variable local.
+
+Sim embargo si declaramos una variable con let dentro un bloque que a su vez está dentro de una función, la variable pertenece solo a ese bloque:
+
+`````````
+function foo() {
+    let i = 0;
+    if(true) {
+        let i = 1; // Sería otra variable i solo para el bloque if
+        console.log(i); // 1
+    }
+    console.log(i); // 0
+}
+foo();
+
+`````````
+
+Por otro lado fuera del bloque donde se declara con let la variable no esta definida
+`````````
+
+function foo() {
+    if(true) {
+        let i = 1;
+    }
+    console.log(i); // ReferenceError: i is not defined
+}
+foo();
+`````````
 
 
+*no permite redaclarar variables
+*posee un scope (no puedo acceder a una variable declarada dentro de una función desde fuera de la función)
+*el scope es de tipo bloque (todo lo que este dentro de llaves)
+
+
+## Const
+con respecto a la declaración de variables usando const se comporta de manera muy parecida a let.
+El ámbito o scope para una variable declarada con const es al igual que con let también evita la redeclaración de variables por otro lado la declaración de variables con sont directamente prohíbe la reasignación de valores.
+
+
+con un let la variable puede ser reasignada, ejemplo:
+
+`````````
+function foo() {
+    let i = 0;
+    if(true) {
+        i = 1;
+     }
+     console.log(i); // 1
+}
+foo();
+`````````
+
+sim embargo si usamos la declaración con const no es posible; si se intenta reasignar una variable constante se obtendrá un error tipo TypeError:
+
+`````````
+const i = 0;
+i = 1; // TypeError: Assignment to constant variable
+`````````
+
+
+*no permite redaclarar variables
+*posee un scope (no puedo acceder a una variable declarada dentro de una función desde fuera de la función)
+*el scope es de tipo bloque (todo lo que este dentro de llaves)
+*las constanste tienen un valor constante que nunca va a cambiar , esto lo podemos usar para variables que sabemos que en el transcurso de mi aplicación no va a cambiar (esto no aplica para los arreglos);
 
 
 
@@ -101,26 +190,8 @@ var y = 2; Inicializa y
 `````````
 
 
-
-
-#Alcances
-
-#Var vs Let vs Cons
-
-se cuenta con 3 caracteristicas
-
-con Var
-// con var podemos redeclarar variables, lo cual nos puede generar problemas sin darnos cuenta.
-
-por ejemplo:
-var nombre="Carlos";
-var nombre="Arturo";
-
-Esto puede generar errores involuntarios;
-
-
-
-con Let:
-
-let pais="Mexico"
-let pais="Hola Mexico";
+## Resumen 
+*var declara una variable de scope global o local para la función sin importar el ámbito de bloque. Permite hoisting.
+*let declara una variable de scope global, local para la función o de bloque. Es reasignable y no permite hoisting.
+*const declara una variable de scope global, local para la función o de bloque. No es reasignable, pero es mutable. No permite hoisting.
+*puedes usar var, let o const para programar , pero actualmente ya no debemos usar var ya que esto nos puede llevar a cometer errores ante la posiblidad de poder redeclarar las variables.
