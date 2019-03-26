@@ -27,7 +27,7 @@ En código anterior , podemos apreciar como la variable texto es una variable de
 Sin Embargo si declaramos la variable Texto con var tanto al inicio como dentro de la función , se va a generar una variable local cuyo ambito se reduce a la propia función donde ha sido declarada;
 
 
-`````````
+`````````javascript
 var texto = "global";
 
 function actualizar() {
@@ -48,7 +48,7 @@ console.log(texto); // global
 ## Let
 El uso de let al momento de declarar una variable nos permite poder tener un mejor control sobre la declaración de la misma a medida que desarrollamos nuestra aplicación , esto debido a que el uso de let nos va a generar un error si queremos volver a declarar una variable con el mismo nombre, por ejemplo:
 
-`````````
+`````````javascript
 let nombres="Juan carlos";
 let nombres="Diego"
 `````````
@@ -58,7 +58,7 @@ Si ejecutamos el codigo estos nos va a generar un error indicando lo siguiente U
 
 Un bloque en JavaScript se puede entender como “lo que queda entre dos corchetes”, ya sean definiciones de funciones o bloques if, while, for y loops similares. Si una variable es declarada con let en el ámbito global o en el de una función, la variable pertenecerá al ámbito global o al ámbito de la función respectivamente, de forma similar a como ocurría con var.
 
-`````````
+`````````javascript
 
 let i = 0;
 function recorrer() {
@@ -76,7 +76,7 @@ Por ejemplo, en el código de ejemplo la variable i es una variable global y la 
 
 Sim embargo si declaramos una variable con let dentro un bloque que a su vez está dentro de una función, la variable pertenece solo a ese bloque:
 
-`````````
+`````````javascript
 function foo() {
     let i = 0;
     if(true) {
@@ -90,7 +90,7 @@ foo();
 `````````
 
 Por otro lado fuera del bloque donde se declara con let la variable no esta definida
-`````````
+`````````javascript
 
 function foo() {
     if(true) {
@@ -114,7 +114,7 @@ El ámbito o scope para una variable declarada con const es al igual que con let
 
 con un let la variable puede ser reasignada, ejemplo:
 
-`````````
+`````````javascript
 function foo() {
     let i = 0;
     if(true) {
@@ -127,7 +127,7 @@ foo();
 
 sim embargo si usamos la declaración con const no es posible; si se intenta reasignar una variable constante se obtendrá un error tipo TypeError:
 
-`````````
+`````````javascript
 const i = 0;
 i = 1; // TypeError: Assignment to constant variable
 `````````
@@ -146,7 +146,7 @@ El concepto de Hoisting fue pensado como una manera general de referirse a cómo
 
 Por ejemplo:
 
-`````````
+`````````javascript
 console.log(dato)  // devuelve como valor undefined
 var dato="hola"
 
@@ -155,7 +155,7 @@ El resultado del código anterior nos permite enender que la variable daos ha si
 
 Teniendo en cuenta el concepto de Hositing lo que estaría sucediendo es lo siguiente:
 
-`````````
+`````````javascript
 var dato  // Hoisting en acción
 console.log(dato)  // devuelve como valor undefined
 var dato="hola"
@@ -167,7 +167,7 @@ Tener encuenta que la caracteristica del hositing es solo aplicable para las dec
 Esto también sucede con las funciones por ejemplo:
 
 
-`````````
+`````````javascript
 nombreDelGato("Dumas");
 
 function nombreDelGato(nombre) { 
@@ -182,7 +182,7 @@ Como se puede observar, aunque primero llamamos a la función en el código, ant
 Por último un ejemplo de como el hoisting afecta solo la declaración de la variables más no la inicialización. el valor será asginado cuando la setencia sea aclanzada.
 
 
-`````````
+`````````javascript
 var x = 1; // Inicializa x
 console.log(x + " " + y); // '1 undefined'
 var y = 2; Inicializa y
