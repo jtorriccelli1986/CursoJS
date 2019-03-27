@@ -18,10 +18,15 @@ function suma(data){
 	console.log(data);
 }*/
 
-
-
-const suma = (data) => {
-	console.log(data)
+var alice = {
+  nombre: "Alice",
+  cansarse: function() {
+    console.log(this.nombre);
+  }
 };
-suma("bienvenido")
+
+var myFunction = alice.cansarse;
+
+myFunction();
+
 </script>

@@ -147,8 +147,7 @@ var getTempItem = function (id) {
 
 Esto se hace por que al encapsular el objeto entre paréntesis declaramos que las llaves son el objeto y no que pertenecen al cuerpo de la función.
 
-## El objeto This
-## Argumentos
+
 
 
 ## IIEFs (Immediately-invoked function expressions)
@@ -158,3 +157,75 @@ Esto se hace por que al encapsular el objeto entre paréntesis declaramos que la
     // algún código aquí
 })();
 ``````
+
+
+
+## El objeto This
+ La variable this, también llamado el scope o más correctamente contexto de la función
+
+La palabra clave this tiene en Javascript un comportamiento diferente al de otros lenguajes pero por lo general, su valor hace referencia al propietario de la función que la está invocando o en su defecto, al objeto donde dicha función es un método.
+
+
+por ejemplo:
+``````javascript
+function llamado(){
+	console.log(this.name)
+}
+
+var persona1={
+	nombre="juan carlos",
+	ver_nombre=llamado
+}
+
+var persona2={
+	nombre="Diego",
+	ver_nombre=llamado	
+}
+
+
+persona1.ver_nombre();
+``````
+
+
+Como vemos el valor de this cambia según sobre que objeto lo llamemos. Bien, Javascript sabe que valor tiene que poner a this antes de llamar a una función, pero nosotros necesitamos entenderlo para no encontrarnos con bugs imposibles de corregir. Para ésto hay una regla de oro: el objeto this pasado a una función es el objeto que está antes del punto que precede los paréntesis que invocan a la función. Es decir, la llamada objectA.myMethod() la podríamos dividir en cuatro partes:
+* objectA: El objeto que contiene la función
+* **. (punto)**: Separa el objeto de su propiedad (la función)
+* myMethod: Nombre de la función
+* () (paréntesis): Ejecutan la función En éste caso vemos que
+
+antes del punto está objectA por lo que será objectA lo que se le pasará a la variable this del método myMethod.
+
+Pero que pasa si no hay ningún punto? si la función no está en ningún objeto?
+
+``````javascript
+function testScope() {
+  console.log(this);
+}
+testScope();
+``````
+
+Aquí podríamos pensar que this es null y tendría sentido pero no, Javascript define que una función invocada sin contexto, el contexto debe ser el Objeto Global, que en el caso de un navegador sería window. Por lo que en una función que no esté contenida en ningún objeto recibirá el objeto global como this.
+
+Pero que pasa cuando hacemos el llamado a una función que no esta asociada a un objeto , veamos el siguiente escenario
+
+``````javascript
+
+var alice = {
+  nombre: "Alice",
+  cansarse: function() {
+    console.log(this.nombre);
+  }
+};
+
+var myFunction = alice.cansarse;
+
+myFunction();
+
+
+``````
+
+
+
+## Argumentos
+
+
