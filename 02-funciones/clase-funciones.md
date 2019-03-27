@@ -14,12 +14,9 @@ function actualizacion(intento){
 	intento++
 }
 
-
 // en esta linea estamos usando/llamando a la función
 
-actualizacion(){
-	
-}
+actualizacion()
 ````````
 
 
@@ -52,6 +49,50 @@ var data = function (value) {
 };
 
 ``````
+Del ejemplo mostrado anteriormente definimos lo siguiente con respecto a la función de tipo flecha:
+
+* cuando la función recibe un solo parametro no necesita parentisis
+* en una sola linea no es necesario declarar el return ya que la función flecha retorarnara el primer argumento que encuentre.
+
+Para el caso que la función reciba más de un argumento entonces si debemos hacer uso de los parentisis :
+
+``````javascript
+var sum = (n1, n2) => n1 + n2;
+
+// Que sería lo mismo que hacer esto:
+var sum = function (n1, n2) {
+  return n1 + n2;
+};
+``````
+
+En el caso que la función no reciba ningún parametro se usan los paréntisis solos
+
+``````javascript
+var getName = () => "Luis Miguel";
+
+// Que sería lo mismo que hacer esto:
+var getName = function () {
+  return "Luis Miguel";
+};
+``````
+
+Pero debemos tener en cuenta y muy claro que no es la unica forma que tenemos para declarar una función de tipo flecha y podemos decir que recurrimos de una otra manera a una sintaxis más tradicional.
+Esto sucede para el caso que nuestra función realiza más tareas debemos encapsular nuestro contenido entre llaves y usar explicitamente el return en nuestra función
+``````
+var sum = (n1, n2) => {
+  return n1 + n2;
+};
+
+// Que sería lo mismo que hacer esto:
+var sum = function (n1, n2) {
+  return n1 + n2;
+};
+``````
+ en este caso vemos claramente que trabajamos como si lo hicieramos de manera tradicional , pero lo que debemos de tener en cuenta es que el valor arguments no se encontara disponible.
+
+
+ para el caso que queramos que nuestra función returno un objeto , 
+
 
 
 ## El objeto This
