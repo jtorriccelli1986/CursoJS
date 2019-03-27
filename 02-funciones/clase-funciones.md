@@ -9,12 +9,12 @@ con parametros, sin parametros, con retorno y sin retorno. Tener en cuenta que n
 un ejemplo de como podemos definir una función es el siguiente:
 
 `````````javascript
- a continuación  se declara la variable
+ //a continuación  se declara la variable
 function actualizacion(intento){
 	intento++
 }
 
- en esta linea estamos usando/llamando a la función
+ //en esta linea estamos usando/llamando a la función
 
 actualizacion()
 `````````
