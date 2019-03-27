@@ -161,9 +161,8 @@ Esto se hace por que al encapsular el objeto entre paréntesis declaramos que la
 
 
 ## El objeto This
- La variable this, también llamado el scope o más correctamente contexto de la función
-
-La palabra clave this tiene en Javascript un comportamiento diferente al de otros lenguajes pero por lo general, su valor hace referencia al propietario de la función que la está invocando o en su defecto, al objeto donde dicha función es un método.
+ 
+La palabra clave this tiene en Javascript un comportamiento diferente al de otros lenguajes pero por lo general, su valor hace referencia al propietario de la función que la está invocando o en su defecto, al objeto donde dicha función es un método. pero debe estar referenciada a un objeto, en caso no tenga un objeto de referencai sera hara referencia al objeto window;
 
 
 por ejemplo:
@@ -224,8 +223,63 @@ myFunction();
 
 ``````
 
+Si llamamos a myFunction directamente lo estaríamos llamando sin contexto por lo el la variable this tendría el objeto global dentro de myFunction, como podemos hacer que ejecute myFunction pero pasándole alice como this? Para ésto tenemos las funciones .call() y .apply(), empecemos por la función .call().
+
+### call
+La función .call() recibe los mismos argumentos que la función mas uno, el valor que tendrá this que se pasa antes que los demás argumentos. Es decir, nuestra función myFunction no recibe ningún argumento así que si llamamos a su método .call() y le pasamos lo que queremos que sea this es decir, alice conseguiremos que el método funcione igual que si lo hubiésemos llamado con alice.cansarse
+
+
+``````javascript
+// como la función no recibe parametros solo se pasa el un parametro que en este caso sera el objeto que queremos que sea el contexto dentro de la función
+
+myFunction.call(alice);
+
+// en el caso que la función tenga parametros tendriamos lo siguiente
+
+myFunction.call(alice,parametro1,parametro2);
+
+
+``````
+
+
+### apply
+
+El método .apply() actúa de forma bastante similar a .call(), pero con una variación, solo recibe dos argumentos, el primero es el contexto de la función, el valor de this y el segundo será un array que contendrá los argumentos que se le pasarán a la función, veamos su uso en el ejemplo anterior:
+``````javascript
+myFunction.apply(alice, [ "Bob", "Rob" ]);
+
+
+function callWithAlice() {
+  alice.saludar.apply(alice, arguments);
+}
+callWithAlice("Rob", "Bob");
+
+``````
+
+Esto aunque en un principio parezca bastante inútil nos servirá cuando, queriendo o no cambiar el contexto de una función, querramos llamarla y no sepamos ni nos interese saber cuántos argumentos tiene, supongamos que tenemos la función callWithAlice() que llama a la función .saludar() de alice y le pasa todos los argumentos que recibe.
+
+observación:Para ésto hace falta aclarar que el objeto arguments es una especie de array con los argumentos pasados a la función, más adelante profundizaremos en ello.
+
+
+### bind
+
+El método .bind() recibe un argumento, el contexto que se le podrá a la función sobre la que se aplica el .bind() y devolverá una función que cuando sea llamada ejecutará la función original con el contexto que se le pasó a .bind(). Lo veremos mejor con un ejemplo:
+
+``````javascript
+var alice = {
+  nombre: "Alice",
+  saludar: function() {
+    console.log("Hola! Soy " + this.nombre);
+  }
+};
+
+var myFunction = alice.saludar.bind(alice);
+myFunction();
+
+``````
 
 
 ## Argumentos
+
 
 
