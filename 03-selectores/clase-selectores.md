@@ -16,7 +16,7 @@ los selectores que tenemos disponbiles son los siguientes:
 Este selector nos devuelve un arreglo de elementos compuestos por todos los elementos que cumplan la condición
 
 ``````javascript
-// esto nos va a devolver a los elementos dentro del DOM de etiqueta "p"
+// esto devolvera a los elementos dentro del DOM de etiqueta "p" (array de elementos)
 document.getElementBytag("p")
 
 ``````
@@ -26,23 +26,43 @@ document.getElementBytag("p")
 Este selector nos devuelve un arreglo de elementos compuestos por todos los elementos que cumplan la condición
 
 ``````javascript
-// esto nos va a devolver a los elementos dentro del DOM que contentan la clase "contendio"
+// esto devolvera a los elementos dentro del DOM que contentan la clase "contendio" (array de elementos)
 document.getElementsByClassName("contenido")
 
 ``````
 
 
 ### Selector de tipo id
-Este selector nos devuelve un único elemento que cumplan la condición
+Este selector nos devuelve un único elemento que cumplan la condición (en el caso que existan varios elementos , el selector devolvera el 1er elemento que encuentre)
 
 ``````javascript
-// esto nos devolver a los elementos dentro del DOM de etiqueta p
-document.getElementBytag("p")
+// esto devolvera al elemento dentro del DOM que contenta el Id title
+document.getElementById("title")
+
+``````
+
+### Selector de querySelector
+Este selector nos devuelve el primer elemento que encuentre , se puede decir que es muy parecido al getElementById sin embargfo la caracteristica de este tipo de selector es que nos permite acceder a los elementos mediante selectores css .
+
+
+``````javascript
+// esto devolvera al elemento dentro del DOM que contenta el selector css #prueba .clase (elemento con la clase item dentro del elemento con el id prueba)
+document.querySelector('#prueba .item')
+``````
+
+
+### Selector de querySelectorAll
+El query querySelectorAll funciona igual que querySelector con la diferencia que nos devuelve todos los elementos que se cumplan con la condición:
+
+
+``````javascript
+// esto devolvera a todos los elementos dentro del DOM que contenta la clase item y se encuentren dentro de elemento que tenga id prueba
+document.querySelectorAll('#prueba .item')
 
 ``````
 
 
-
+con respecto a los selectores tenemos un pequeño detalle sobre como podemos usarlos a nuestro favor para acceder a elementos
 
 * E#myid  un elemento E con ID igual a myid.
 * E[foo]  un elemento E con un atributo foo
@@ -53,6 +73,3 @@ document.getElementBytag("p")
 * E[foo$="bar"] un elemento E cuyo valor de atributo foo finaliza exactamente el string bar
 * E[foo*="bar"] un elemento E cuyo valor de atributo foo contiene el substring bar
 
-
-#selector de etiqueta ,clase e ID
-#selectores generales
