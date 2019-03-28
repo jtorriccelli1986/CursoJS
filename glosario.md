@@ -8,3 +8,8 @@ Toda variable que se declare fuera de una función tiene un scope global, es dec
 
 ## Scope Local
 Este tipo de scope aplica para las variables declaradas dentro de una función y serán accesibles durante toda la ejecución de dicha función
+
+
+## DOM 
+
+## Nodo
