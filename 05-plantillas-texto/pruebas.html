@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+
+function templater ( strings, ...keys ) {
+    return function( data ) {
+        let temp = strings.slice();
+ 
+        keys.forEach( ( key, i ) => {
+            temp[ i ] = temp[ i ] + data[ key ];
+        } );
+ 		
+ 		console.log(temp);
+        return temp.join( '' );
+    }
+  
+};
+
+
+var img1 = {
+    name: 'Hidetaka Miyazaki',
+    src: 'Hidetaka_miyazaki.jpg',
+    caption: 'Japanese God'
+};
+ 
+var imgTemplate = templater`<figure>
+    <img alt="${ 'name' }" src="${ 'src' }">
+    <figcaption>${ 'caption' }</figcaption>
+</figure>`;
+
+
+
+var myTemplate = imgTemplate( img1 );
+
+
+console.info( myTemplate );
+
+/*
+revisar a detalle
+http://www.etnassoft.com/2016/10/05/template-strings-en-es6-estudiando-las-nuevas-plantillas-de-cadena-en-javascript/
+*/
+</script>

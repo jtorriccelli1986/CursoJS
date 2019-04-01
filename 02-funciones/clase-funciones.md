@@ -282,4 +282,111 @@ myFunction();
 ## Argumentos
 
 
+### Parametros Rest
+El operador rest es una característica de JavaScript ES6 que nos permite evitar el trabajo repetitivo en las funciones con el tratamiento de parámetros. Gracias a ES6, podemos definir valores predeterminados a las funciones, aunque no solo se limita a esto, sino que el operador rest nos va a permitir obtener un número indefinido de parámetros de forma estructurada a través de un array de valores. En este artículo, explicamos cómo utilizarlo, ya que nos permite acortar y simplificar los códigos que se utilizaban antes para obtener cualquier número de argumentos en una función. (se utiliza en la declaración de una función)
 
+`````javascript
+// uso básico del operador Rest
+function max(...numeros) {
+   console.log(numeros);
+ }
+
+`````
+En este ejemplo, lo que indicamos es que cualquier cantidad de parámetros que se envíen al invocar la función se estructurará como un array y dentro de la función se conocerá con el nombre de “numeros”. De este modo, podremos invocar a la función con el número de parámetros que queramos, teniendo siempre en el parámetro numero un array, con el número de casillas deseado.
+Para comprobar esto, basta con invocar a la función anterior utilizando el juego de parámetros que deseemos:
+
+`````javascript
+ max("test", 4, true, 2000, "90");
+ // en este caso el manejo de los parametros ingresados será en base a un arreglo 
+ `````
+
+Los parámetros a los que no hemos asignado un nombre son los que el operador rest nos va a ofrecer en el array. Por tal motivo, en una función podremos recibir un número de parámetros en variables normales, pero también recibir cualquier número de parámetros en un array gracias al operador rest.
+
+
+`````javascript
+function max(max = 0, ...numeros) {
+  for(let i = 0; i < numeros.length; i++) { if(numeros[i] > max) {
+      max = numeros[i];
+    }
+  }
+  return max;
+}
+ `````
+
+ En el siguiente ejemplo vamos a recibir cualquier número de parámetros y comprobaremos si el primero de los parámetros se repite en los parámetros que se indican posteriormente:
+
+`````javascript
+function enLista(buscar, ...nombres) {
+  for(let i = 0; i < nombres.length; i++) {
+    if(buscar === nombres[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+console.log(enLista('José', 'Álvaro', 'María', ' José ')); // muestra true
+console.log(enLista(' José ', ' Álvaro ', ' María ', 'Manolo')); // muestra false
+ `````
+
+
+### Parametros Spread
+
+Spread, el nuevo operador de propagación que ofrece JavaScript ES6, nos resultará de ayuda para ahorrar líneas de código, ya que genera una lista de valores a partir de un array y es un excelente recurso para mejorar el código JavaScript
+
+Al igual que el operador rest, del que hablamos hace poco en este artículo, utiliza la misma sintaxis de los tres puntos seguidos.
+
+`````javascript
+// pasamos los parametros 1 por 1
+Math.min(3, 5, 7, 2, 9);
+
+
+// usamos el operador spread
+
+cons valores=[2,3,4,56,7]
+Math.min(...valores);
+
+// tener en cuenta que no es lo mismo usar el arreglo de manera directa en el metodo Min , esto generaría un error en la ejecución
+cons valores=[2,3,4,56,7]
+Math.min(valores);
+`````
+
+esto puede parecer confuso pero debemos de tener en cuenta que es como el conocido operador rest, pero lo invocamos en una función.
+
+
+Vamos a ver como podemos combinar el uso de los operadores spred y rest
+
+Vamos a poner como ejemplo una función que admite cualquier cantidad de cadenas por parámetro y devuelve un array con esas mismas cadenas, eliminando los espacios vacios de antes y después.
+
+`````javascript
+// declaramos la función usando el operador REST
+function EliminarEspacios(...cadenas) {
+   for (let i=0; i < cadenas.length; i++) {
+     cadenas[i] = cadenas[i].trim();
+   }
+   return cadenas;
+ }
+
+ // ahora hacemos uso de la función
+
+let limpiandoCadenas = EliminarEspacios('aquí ', ' lados ', ' espacio');
+ console.log(limpiandoCadenas);
+
+
+ // pero que pasa si en vez de una cadena queremos pasar un array 
+ const cadenasOriginales = ['aquí ', ' lados ', ' espacio'];
+ let limpiandoCadenas = EliminarEspacios(cadenasOriginales); // devuleve un error
+
+// para poder solucionar este inconveniente podemos usar el operador spread
+
+const cadenasOriginales = ['aquí ', ' lados ', ' espacio'];
+ let limpiandoCadenas = EliminarEspacios(...cadenasOriginales); // el array se convertira en una lista de parametros que es lo que requiere la función.
+
+`````
+
+let limpiandoCadenas = EliminarEspacios('aquí ', ' lados ', ' espacio');
+ console.log(limpiandoCadenas);
+
+
+para entender los parametros 
+Rest parameter funciona en la declaración de la funcion.
+Spread operator funciona cuando se usa en la ejecución.
