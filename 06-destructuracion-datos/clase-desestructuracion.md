@@ -58,3 +58,27 @@ const persona=["Juan Carlos",20,"Desarrollador"]
 ``````````
 
 ## Desestructuración de objetos
+
+La desestructuración funciona de manera muy parecida a la de arreglos 
+
+`````javascript
+const usuario={
+	nombre:"Juan Carlos",
+	edad:29,
+	pais:"Perú"
+}
+const {nombre,pais,profesion="no especificada"}=usuario;
+
+// debemos tener en cuenta que a diferencia de un arreglo podemos acceder directamente al valor que queremos sin dejar espacios ya que se asocia de manera directa al nombre del atributo.
+`````
+
+Veamos como podemos usar la desestructuración en una función
+`````javascript
+const mostrarInfo=({nombre,profesion="Esudiante"}){
+console.log("${nombre} es ${profesion}");
+	
+}
+`````
+
+Esta forma de trabajar es muy usada hoy por ello al revisar ejemplo vamos a encontar este forma de trabajar así que debemos estar preparados para poder entender como funciona.
+
