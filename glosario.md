@@ -13,3 +13,7 @@ Este tipo de scope aplica para las variables declaradas dentro de una función y
 ## DOM 
 
 ## Nodo
+
+
+#investigar
+## LeftHandSideExpression 
