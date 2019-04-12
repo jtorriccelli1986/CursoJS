@@ -95,7 +95,7 @@ console.log(listado_numeros.length) // 3
 
 ### Push
 
-El metodo push nos permite agregar un elemento dentro del arrego 
+El metodo push nos permite agregar un elemento dentro del arrego y devuelve la longitud del arreglo
 
 ```javascript
 let listado_numeros=[1,2,3];
@@ -110,14 +110,86 @@ listado_numeros[listado_numeros.length]="otro"
 
 ### pop
 
+El metodo pop nos permite remove el último elemento de un arreglo y devuelve el elemento eliminado
+
+```javascript
+let listado_numeros=[1,2,3];
+listado_numeros.pop() 
+console.log(listado_numeros) // 1,2
+```
+
 
 ### unshift
+El método unshif agrega uno o más elementos al incio del arreglo y devulve la longitud del array.
+
+```javascript
+let listado_numeros=[1,2,3];
+listado_numeros.unshift(-1,0); // 5
+console.log(listado_numeros) // -1,0,1,2,3
+```
+
+
+
 ### shift
+
+El método shif remueve el primer elemento del arreglo y devulve el elemento eliminado.
+```javascript
+let listado_numeros=[1,2,3];
+listado_numeros.shift(); 
+console.log(listado_numeros) // 2,3
+```
+
+
+
 ### map
+El método map() crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
+
+```javascript
+var numeros = [1, 4, 9];
+var dobles  = numeros.map(function(num) {
+  return num * 2;
+});
+
+// dobles es ahora [2, 8, 18]
+// numeros sigue siendo [1, 4, 9]
+```
+
 ### reduce
+
+El método reduce aplica una función a un acumulador y a cada valor de un array (de izquierda a derecha) para reducirlo a un único valor.
+```javascript
+let lisado=["a","b","c"];
+	lisado.reduce(function(acumulador,valor_actual,index,arreglo){
+		console.log(valor_anterior);
+		return acumulador+valor_actual
+},0)
+```
+
 ### filter
+
+El método filter() crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.
+
+```javascript
+	var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(function(data){
+	let estado=false;
+	if(data=="spray"){
+		estado=true;
+	}
+
+	return estado; 
+});
+console.log(result);
+```
+
+
 ### find
 ### findIndex
 ### some,every
 
 ## conversiones (Array.fromS)
+
+
+
+leer más en : https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array#
