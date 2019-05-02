@@ -31,7 +31,24 @@ El bucle FOR tiene tres partes incluidas entre los paréntesis, que nos sirven p
 
 ** Después del for se colocan las sentencias que queremos que se ejecuten en cada iteración, acotadas entre llaves.
 
+Ejemplo 
+// Separa por categorias los elementos del siguiente arreglo (crear una arreglo nuevo para cada categoria)
 
+````````javascript
+listado[{item:"Producto01",categoria:1},
+        {item:"Producto02",categoria:2},
+        {item:"Producto03",categoria:3},
+        {item:"Producto04",categoria:3},
+        {item:"Producto05",categoria:2},
+        {item:"Producto06",categoria:1},
+        {item:"Producto07",categoria:1},
+        {item:"Producto08",categoria:2},
+        {item:"Producto09",categoria:2},
+        {item:"Producto10",categoria:3},
+        {item:"Producto11",categoria:3},
+        {item:"Producto12",categoria:1},
+        {item:"Producto13",categoria:2}]
+````````
 
 ## While
 
@@ -40,8 +57,11 @@ Mientras que el bucle  for  se utiliza cuando sabes cuántas veces quieres repet
 ** La traducción de while en español es mientras. Por lo tanto, la sentencia  while  se puede entender como "mientras se cumpla la condición, ejecuta el siguiente bloque de código entre llaves.
 
 ````````javascript
-while(){
+let numero=0;
+while(numero<=10){
+  console.log(numero)
 	//tarea
+  numero++;
 }
 ````````
 
@@ -62,15 +82,19 @@ while (letra !== "x") {
 
 **En conclusión, todos los bucles pueden escribirse con un while. Si sabemos cuántas repeticiones requerirá el bucle, será mejor utilizar el  for . En cambio, si no conocemos el número de vueltas requeridas, utiliza el  while .‌
 
+// ejercicio utilizar un bucle para poder contabilizar 3 intenteos de logeo
+
+
 ## Do while
 
 El bucle do...while es una variación del bucle while visto anteriormente. Se utiliza generalmente cuando no sabemos cuantas veces se habrá de ejecutar el bucle, igual que el bucle WHILE, con la diferencia de que sabemos seguro que el bucle por lo menos se ejecutará una vez.
 la forma de definiir una estructura do while es la siguiente :
 
 ````````javascript
-do { 
-   	//sentencias del bucle 
-}
+do {
+  i += 1;
+  console.log(i);
+} while (i < 5);
 ````````
 
 El bucle se ejecuta siempre una vez y al final se evalúa la condición para decir si se ejecuta otra vez el bucle o se termina su ejecución.
@@ -86,6 +110,7 @@ do {
 } while (valor != "salir")
 ````````
 Este ejemplo funciona exactamente igual que el anterior, excepto que no tuvimos que inicializar la variable color antes de introducirnos en el bucle. Pide un color mientras que el color introducido es distinto que "rojo".
+
 
 ## For in
 
@@ -128,6 +153,25 @@ https://jsperf.com/for-vs-for-in-performance-with-strings
 
 ````````
 
+Ejemplo 
+// Separa los elementos que tengan la propiedad estado definida  y tambien agrupar los elementos por estados definidos
+
+````````javascript
+listado[{item:"Producto01",categoria:1,estado:1},
+        {item:"Producto02",categoria:2},
+        {item:"Producto03",categoria:3,estado:1},
+        {item:"Producto04",categoria:3},
+        {item:"Producto05",categoria:2,estado:1},
+        {item:"Producto06",categoria:1},
+        {item:"Producto07",categoria:1,estado:0},
+        {item:"Producto08",categoria:2},
+        {item:"Producto09",categoria:2,estado:1},
+        {item:"Producto10",categoria:3},
+        {item:"Producto11",categoria:3,estado:1},
+        {item:"Producto12",categoria:1,estado:0},
+        {item:"Producto13",categoria:2}]
+````````
+
 
 ## For of
 
@@ -153,3 +197,21 @@ for (let value of iterable) {
 ```````
 
 Debemos tener en cuenta que pudimos haber realizado esta misma tarea usando la estructura For , pero con esta estructura nuestro código es un poco más optimo ya que como vemos no definimos una variables de incialización ni de incremental.
+
+
+Ejemplo: plasmar en una lista html el siguiente contenido del arreglo y contemplar un estilo visual diferente para los elementos con estado : 0
+
+listado[{item:"Producto01",categoria:1,estado:0},
+        {item:"Producto02",categoria:2,estado:1},
+        {item:"Producto03",categoria:3,estado:1},
+        {item:"Producto04",categoria:3,estado:1},
+        {item:"Producto05",categoria:2,estado:1},
+        {item:"Producto06",categoria:1,estado:0},
+        {item:"Producto07",categoria:1,estado:1},
+        {item:"Producto08",categoria:2,estado:1},
+        {item:"Producto09",categoria:2,estado:0},
+        {item:"Producto10",categoria:3,estado:1},
+        {item:"Producto11",categoria:3,estado:1},
+        {item:"Producto12",categoria:1,estado:1},
+        {item:"Producto13",categoria:2,estado:0}]
+
