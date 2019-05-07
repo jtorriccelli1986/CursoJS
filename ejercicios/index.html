@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		#detalle-registro{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row pt-5 text-center">
+			<div class="col-12">
+				<h2 class="h3">Registrar Tarea</h2>
+				<form class="pt-3">
+					<div class="form-group row">
+						
+						<input type="text" class="form-control col-8 mr-5" placeholder="Tarea"  name="" value="Texto" id="nombre">
+						
+						<button type="button" class="btn btn-success col-3" value="Registrar" name="" id="registrar">Registrar</button>
+						
+					</div>
+					
+					<div class=" pt-4" id="detalle-registro">
+
+					<div class="row">
+						<div class="col-4">
+							<div class="form-group">
+								<label>Fecha</label>
+								<input id="fecha" type="text" class="form-control" placeholder="dd/mm/yyyy" name="">
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="form-group">
+								<label>Hora</label>
+								<input type="text" id="hora" class="form-control" name="" placeholder="HH:mm">
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="form-group">
+								<label>Tipo</label>
+								<select class="form-control" id="tipo">
+									<option value="0">Seleccionar</option>
+									<option value="1">Importante</option>
+									<option value="2">Necesaria</option>
+									<option value="3">Urgente</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-12 pt-3">
+							<button type="button" class="btn btn-info" id="registro-final" style="max-width: 300px">Registrar Actividad</button>
+						</div>
+
+						</div>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+		<hr>
+		<div class="row pt-5">
+			<div class="col-6">
+				<h2 class="h4  pb-3">
+				Listado de Actividades
+				</h2>
+				<div id="activades">
+					<h3 class="h5">Activas</h3>
+					<ul id="listado-activadas">
+						<li>Tarea 1</li>
+					</ul>
+				</div>
+				<div id="inactivades">
+					<h3 class="h5">Finalizadas</h3>
+					<ul  id="listado-inactivadas">
+						<li>Tarea 2</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-6">
+				<h2 class="h4 pb-3">Detalle de actvidiad</h2>
+				<h2 id="nombre_tarea" class="h5">Nombre de Tarea</h2>
+				<ul>
+					<li>Fecha</li>
+					<li>Hora</li>
+					<li><strong>Tipo</strong></li>
+				</ul>
+				<div>
+					<span>Observacion</span>
+					<textarea class="form-control"></textarea>
+				</div>
+				<div class="pt-4 pb-4">
+					<button class="btn btn-info float-left"  type="button">Finalizar Tarea</button>
+					<button class="btn btn-danger float-right" type="button">Regresar</button>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+<script type="text/javascript" src="funciones.js"></script>
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

@@ -185,11 +185,211 @@ console.log(result);
 
 
 ### find
+
+El metodo find de un arreglo devuelve el primer element del array que cumple con la purba porporcionada . en cualquier otro caso devuelve undefined
+```javascript
+var listado = [5, 12, 8, 130, 44];
+var found = listado.find(function(element) {
+  return element > 10;
+});
+```
+no solo podemos evaluar valores dentro de un arreglo si no que también podemos evaluar estructuras más complejas con un arreglo de objetos
+
+```javascript
+var inventario = [
+    {nombre: 'manzanas', cantidad: 2},
+    {nombre: 'bananas', cantidad: 0},
+    {nombre: 'cerezas', cantidad: 5}
+];
+
+function esCereza(fruta) { 
+    return fruta.nombre === 'cerezas';
+}
+
+console.log(inventario.find(esCereza));
+// { nombre: 'cerezas', cantidad: 5 }
+```
+
+
 ### findIndex
-### some,every
-
-## conversiones (Array.fromS)
+El metdo findIndex funciona de manera muy parecida al metod find(), solo que en vez de devolver el elemento devuelve el indice del elemento encontrado que cumpla la condición , en caso de no encontrar ninguna coincidencia devuelve -1
 
 
+#forEach
+El método forEach() ejecuta la función indicada una vez por cada elemento del array.
+```javascript
+var lista = ['a', 'b', 'c'];
 
-leer más en : https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array#
+lista.forEach(function(element) {
+  console.log(element);
+});
+
+// salida: "1"
+// salida: "2"
+// salida: "3"
+
+```
+
+### Join
+El método join() une todos los elementos de una matriz (o un objeto similar a una matriz) en una cadena y devuelve esta cadena.
+```javascript 
+var elements = ['Fire', 'Air', 'Water'];
+
+console.log(elements.join());
+// expected output: "Fire,Air,Water"
+
+console.log(elements.join(''));
+// expected output: "FireAirWater"
+
+console.log(elements.join('-'));
+// expected output: "Fire-Air-Water"
+```
+
+### split
+El método slice() devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido). El array original no se modificará.
+
+
+```javascript 
+var nombres = ['Rita', 'Pedro', 'Miguel', 'Ana', 'Vanesa'];
+var masculinos = nombres.slice(1, 3);
+
+// masculinos contiene ['Pedro','Miguel']
+```
+
+
+### sort
+El método sort() ordena los elementos de un array localmente y devuelve el array. La ordenación no es necesariamente estable. El modo de ordenación por defecto responde a la posición del valor del string de acuerdo a su valor Unicode.
+
+```javascript 
+
+var frutas = ['guindas', 'manzanas', 'bananas'];
+frutas.sort(); // ['bananas', 'guindas', 'manzanas']
+
+var puntos = [1, 10, 2, 21]; 
+puntos.sort(); // [1, 10, 2, 21]
+// Tenga en cuenta que 10 viene antes que 2
+// porque '10' viene antes que '2' según la posición del valor Unicode.
+
+var cosas = ['word', 'Word', '1 Word', '2 Words'];
+cosas.sort(); // ['1 Word', '2 Words', 'Word', 'word']
+// En Unicode, los números vienen antes que las letras mayúsculas
+// y estas vienen antes que las letras minúsculas.
+```
+#includes
+
+El método includes() determina si una matriz incluye un determinado elemento, devuelve true o false según corresponda. Utiliza el algoritmo sameValueZero para determinar si se encuentra el elemento dado.
+
+```javascript 
+var array1 = [1, 2, 3];
+
+console.log(array1.includes(2));
+// expected output: true
+
+var pets = ['cat', 'dog', 'bat'];
+
+console.log(pets.includes('cat'));
+// expected output: true
+
+console.log(pets.includes('at'));
+// expected output: false
+```
+
+
+### some 
+El método some() comprueba si al menos un elemento del array cumple con la condición implementada por la función proporcionada.
+```javascript 
+var array = [1, 2, 3, 4, 5];
+
+var even = function(element) {
+  // checks whether an element is even
+  return element % 2 === 0;
+};
+
+console.log(array.some(even));
+// expected output: true
+// y estas vienen antes que las letras minúsculas.
+```
+un ejemplo en donde queremos validar si existe un valor mayor a 10
+```javascript 
+function isBiggerThan10(element, index, array) {
+  return element > 10;
+}
+[2, 5, 8, 1, 4].some(isBiggerThan10);  // false
+[12, 5, 8, 1, 4].some(isBiggerThan10); // true
+```
+
+ahora si queremos hacer lo mismo con funciones de tipo flecha podemos hacer esto:
+```javascript 
+[2, 5, 8, 1, 4].some(elem => elem > 10);  // false
+[12, 5, 8, 1, 4].some(elem => elem > 10); // true
+```
+
+
+### Every
+El método every() devuelve un booleano, true si todos los elementos en el arreglo pasan la condición implementada por la función dada y false si alguno no la cumple.
+
+El siguiente ejemplo prueba si todos los elementos de un arreglo son mayores que 10.
+
+```javascript 
+function esSuficientementeGrande(elemento, indice, arrreglo) {
+  return elemento >= 10;
+}
+[12, 5, 8, 130, 44].every(esSuficientementeGrande);   // false
+[12, 54, 18, 130, 44].every(esSuficientementeGrande); // true
+```
+
+## Array.from
+
+El método Array.from() crea una nueva instancia de Array a partir de un objeto iterable.
+
+```javascript 
+console.log(Array.from('foo'));
+// expected output: Array ["f", "o", "o"]
+
+console.log(Array.from([1, 2, 3], x => x + x));
+// expected output: Array [2, 4, 6]
+```
+
+Array.from permite convertir los 2 siguientes tipos de valores en arrays:
+valores array-like (tienen logintud y elementos indexados)
+valores iterables
+
+```javascript 
+const arrayLike = { length: 2, 0: 'x', 1: 'y' };
+
+// no podemos usar for-of, por que no es un iterable
+for (const item of arrayLike) { 
+    console.log(item);
+}// TypeError
+
+const array = Array.from(arrayLike);
+//ahora sí podemos, array es iterable
+for (const item of array) {
+    console.log(item);
+}
+// a
+// b
+```
+
+De la segunda opción, objetos iterables, vemos que podemos crear Arrays a partir de Maps, Sets, strings, iterables obtenidos a partir de array.keys(), etc.
+
+Veamos algunos ejemplos de Array.from con iterables:
+
+```javascript 
+Array.from(['a', 'b', 'c']);
+//['a', 'b', 'c']
+
+Array.from(['a', 'b', 'c'].keys());
+//[0, 1, 2]
+
+Array.from("foo");                      
+// ["f", "o", "o"]
+
+var set = new Set(["foo", "bar", 1]);
+Array.from(set);   
+// ["foo", "bar", 1]
+
+var map = new Map([['bar', 1], ['foo', 2]]);
+Array.from(map);
+//[["bar", 1], ["foo", 2]]  
+```

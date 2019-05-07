@@ -10,15 +10,12 @@
 
 <script type="text/javascript">
 	
-	var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+console.log(Array.from('foo'));
+// expected output: Array ["f", "o", "o"]
+listado=[1,2,1,2,3,4,5];
+let datos=Array.from(listado);
+console.log(datos);
 
-const result = words.filter(function(data){
-	let estado=false;
-	if(data=="spray"){
-		estado=true;
-	}
-
-	return estado; 
-});
-console.log(result);
+//console.log(Array.from([1, 2, 3], x => x + x));
+// expected output: Array [2, 4, 6]
 </script>
