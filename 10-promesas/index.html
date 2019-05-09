@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+</body>
+</html>
+<script type="text/javascript">
+	/*
+	let promesa=new Promise((resolve,reject)=>{
+		let estado=false;
+		if(estado){
+			resolve("hola",123);
+		}
+		else{
+			reject("errorasdas",12314);
+		}
+	})
+	promesa.then((respuesta)=>{
+		console.log(respuesta);
+	},(error)=>{
+		console.log(error);
+	})	
+	promesa.catch(()=>{
+		console.log("entro al cacth");
+	})
+
+
+
+	let promesa1=new Promise((resolve,reject)=>{
+	resolve("Primera Promesa");
+
+})
+ let promesa2=new Promise((resolve,reject)=>{
+ 	setTimeout(()=>{
+ 		reject("Segunda Promesa");
+ 	},2000)
+	
+	
+})
+
+  let promesa3=new Promise((resolve,reject)=>{
+ 	setTimeout(()=>{
+ 		reject("Error Promesa 3");
+ 	},3000)
+	
+	
+})
+
+
+Promise.all([promesa1,promesa2,promesa3])
+.then((value)=>{
+	console.log(value);
+})
+.catch((error)=>{
+	console.log(error)
+})
+
+*/
+ 
+
+
+ let promesa1=new Promise((res,error)=>{
+	res("promesa 1 resulta")
+})
+let promesa2=new Promise((res,error)=>{
+	error("promesa 2 resuleta")
+})
+
+promesa1.then((data)=>{
+	console.log(data)
+	return(promesa2)
+})
+.then((promesaenviada)=>{
+	console.log(promesaenviada);
+})
+.catch((error)=>{
+	console.log("error en"+error);
+})
+
+
+</script>

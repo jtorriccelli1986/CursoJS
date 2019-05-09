@@ -71,7 +71,7 @@ const {nombre,pais,profesion="no especificada"}=usuario;
 
 // debemos tener en cuenta que a diferencia de un arreglo podemos acceder directamente al valor que queremos sin dejar espacios ya que se asocia de manera directa al nombre del atributo.
 `````
- s
+ 
 Veamos como podemos usar la desestructuración en una función
 `````javascript
 const mostrarInfo=({nombre,profesion="Esudiante"}){

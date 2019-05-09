@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+	.lista-totales{
+		border-top:2px solid black;
+	}
+		.lista-totales li{
+			margin-bottom: 5px;
+			list-style: none;
+			padding-top: 20px;
+		}
+		.detalle-seleccion{
+			display: flex;
+			justify-content: space-between;
+		}
+		.detalle-seleccion p{
+			font-weight: bold;
+		}
+		.detalle-seleccion span{
+			margin-right: 20px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row pt-5">
+			<div class="col-6">
+			<h3 class="h4 p-2">Ingredientes</h3>
+				<ul class="list-group">
+				  <li class="list-group-item">Hamburgesa</li>
+				  <li class="list-group-item">Queso</li>
+				  <li class="list-group-item">Gaseosa</li>
+				  <li class="list-group-item">Papas</li>
+				  
+				</ul>
+				<div class="pt-4">
+				<div class="detalle-seleccion">
+					<p>Hamburgesa</p>
+					<div>
+						<span class="">S/10.00</span>	<button class="btn btn-info">Agregar</button>
+					</div>
+				</div>
+				
+				</div>
+			</div>
+			<div class="col-6">
+			<h3 class="h4 p-2">Pedido</h3>
+				<ul class="list-group list-group-flush">
+				  <li class="list-group-item">Cras justo odio</li>
+				  <li class="list-group-item">Dapibus ac facilisis in</li>
+				  <li class="list-group-item">Morbi leo risus</li>
+				  <li class="list-group-item">Porta ac consectetur ac</li>
+				  <li class="list-group-item">Vestibulum at eros</li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-6"></div>
+			<div class="col-6">
+				<ul class="lista-totales text-right">
+					<li>Total <strong>S/10.00</strong></li>
+					<li>IGV <strong>S/1.9</strong></li>
+					<li>Total a Pagar <strong>S/20.00</strong></li>
+				</ul>
+				<button class="btn btn-success float-right">Registrar Venta</button>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
