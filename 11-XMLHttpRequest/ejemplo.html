@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+
+</body>
+</html>
+<script type="text/javascript">
+let promesa1=new Promise((resolve,reject)=>{
+ resolve("hola desde resolve");
+})
+promesa1.then((data)=>{
+	console.log(data);
+},(error)=>{
+	console.log(error);
+})
+
+
+let xhr=new XMLHttpRequest;
+let url="https://jsonplaceholder.typicode.com/todos/1";
+xhr.open("GET",url,true);
+xhr.send(null);
+
+if (xhr.status==200){
+	console.log(xhr);
+}
+//(function(){console.log("aqí")})()
+
+</script>
