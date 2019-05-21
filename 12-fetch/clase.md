@@ -4,7 +4,7 @@ La API Fetch proporciona un canal para obtener recursos a través de la red. Bas
 ## Flujo básico
 La transacción se realiza siguiendo el proceso ya conocido para quienes trabajan con XMLHttpRequest:
 
-* [El método fetch()] realiza una petición del recurso que necesita sobre el servidor que lo aloja.
+* **El método fetch()** realiza una petición del recurso que necesita sobre el servidor que lo aloja.
 * El propio objeto devuelve una promesa con el objeto Response de la petición, tanto si tiene éxito como si no.
 * Una vez obtenida la respuesta, ésta proporciona una serie de métodos que permiten comprobar su contenido y manejarlo.
 
@@ -34,10 +34,10 @@ El constructor Request representa nuestra petición al servidor. Dependiendo de 
 
 method: el método HTTP de la petición. Por ejemplo: GET (por defecto), POST, DELETE.
 
-[headers]: cualquier cabecera HTTP que queramos incluir en la petición.
-[body]: el contenido que queramos añadir a nuestra petición. Las peticiones de tipo GET no pueden tener body.
-[mode]: el modo a utilizar por la petición. Por ejemplo: cors, no-cors, o same-origin.
-[cache]: el modo de caché que queremos utilizar para la petición. Por ejemplo: no-store, reload, no-cache.
+**headers**: cualquier cabecera HTTP que queramos incluir en la petición.
+**body**: el contenido que queramos añadir a nuestra petición. Las peticiones de tipo GET no pueden tener body.
+**mode**: el modo a utilizar por la petición. Por ejemplo: cors, no-cors, o same-origin.
+**cache**: el modo de caché que queremos utilizar para la petición. Por ejemplo: no-store, reload, no-cache.
 NOTA: La lista completa de parámetros puede verse en la documentación.
 
 Con estos parámetros, una instancia completa de Request se formaría del siguiente modo (continuamos usando el endpoint del ejemplo anterior):
@@ -95,8 +95,8 @@ La petición genera promesa que se transforma en una respuesta, en concreto, una
 
 Response proporciona varios métodos para trabajar con las respuestas. Los más interesantes son:
 
-* [json()]: crea una promesa que espera la respuesta completa del servidor para devolver finalmente un objeto JSON.
-* [text()]: crea una promesa que espera la respuesta completa del servidor para devolver finalmente una cadena de texto.
+* **json()**: crea una promesa que espera la respuesta completa del servidor para devolver finalmente un objeto JSON.
+* **text()**: crea una promesa que espera la respuesta completa del servidor para devolver finalmente una cadena de texto.
 
 ````javascript
 var url = 'https://code.jquery.com/jquery-3.1.1.slim.min.js';
