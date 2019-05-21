@@ -26,7 +26,7 @@ promesa.catch(()=>{
 
 Tener en cuenta que las promesas solo pueden  manejar un estado, veamos un ejemplo de mencionado:
 
-´´´javascript
+```javascript
 let promesa=new Promise((res,error)=>{
 	setTimeout(()=>{
 	res("hola");
@@ -36,7 +36,7 @@ let promesa=new Promise((res,error)=>{
 	},3000);
 
 })
-´´´
+```
 Si nos percamos en este punto luego de 2s la promesa resolvera resolve y luego de los 3s ya no podrá cambiar de estado.
 
 
@@ -45,7 +45,7 @@ Si nos percamos en este punto luego de 2s la promesa resolvera resolve y luego d
 es una propiedad de las promesas que nos permite evaluar el estado de todas las promesa , esto nos devuelve un arreglo con el estado de todas las promesa , en caso 1 de las promesas sea rechazada nos devuelve el error de la promesa que fue rechazada
 
 
-´´´javascript
+```javascript
 let promesa1=new Promise((resolve,reject)=>{
 	resolve("Primera Promesa");
 
@@ -62,14 +62,12 @@ Promise.all([Promesa1,Promesa2])
 .catch((error)=>{
 	console.log(error)
 })
- 
-
-´´´
+```
 
 ### Promise.race
 nos permite obtener el valor de una promesa con la premisa de que la será devuelva es la primea que se termino de ejecutar.
 
-´´´javascript
+```javascript
 let promesa1=new Promise((resolve,reject)=>{
 setTimeout(()=>{
 	resolve("Primera Promesa");
@@ -100,12 +98,12 @@ Promise.race([promesa1,promesa2,promesa3])
 })
  
 
-´´´
+```
 
 ### concadenación de promesas
 
 
-´´´javascript
+```javascript
 let promesa1=new Promise((res,error)=>{
 	res("promesa 1 resulta")
 })
@@ -123,4 +121,4 @@ promesa1.then((data)=>{
 .catch((error)=>{
 	console.log("error en"+error);
 })
-´´´
+```
