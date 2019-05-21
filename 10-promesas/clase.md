@@ -6,7 +6,7 @@ Las promesas son muy socorridas en ejecuciones de código asíncrono pues, si no
 Las promesas no solo nos son útiles en marcos asíncronos. Es cierto que la mayoría de veces es usado en en este contexto, pero como veremos en apartados siguientes, puede ser un buen patrón para encadenar ejecuciones sobre un valor determinado.
 
 
-´´´javascript
+```javascript
 let promesa=new Promise((resolove,reject)=>{
 	const estado=true;
 	if(estado){
@@ -22,7 +22,7 @@ promesa.then(()=>{
 promesa.catch(()=>{
 	//
 })
-´´´
+```
 
 Tener en cuenta que las promesas solo pueden  manejar un estado, veamos un ejemplo de mencionado:
 
