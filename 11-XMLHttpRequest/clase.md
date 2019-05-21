@@ -2,7 +2,7 @@
 AJAX es el acrónimo de Asynchronous Javascript and XML, es decir: Javascript y XML Asincrono. 
 
 
-El objeto XMLHttpRequest posee muchas otras propiedades y métodos diferentes a las manejadas por la primera aplicación de AJAX. A continuación se incluye la lista completa de todas las propiedades y métodos del objeto y todos los valores numéricos de sus propiedades.
+El objeto **XMLHttpRequest** posee muchas otras propiedades y métodos diferentes a las manejadas por la primera aplicación de AJAX. A continuación se incluye la lista completa de todas las propiedades y métodos del objeto y todos los valores numéricos de sus propiedades.
 
 Las propiedades definidas para el objeto XMLHttpRequest son:
 
