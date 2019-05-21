@@ -107,17 +107,63 @@ fetch( url )
 
 ````
 
+El método fetch() puede aceptar un segundo parámetro opcional, un objeto init que permite controlar algunos ajustes: 
 
+```javascript
+varar misCabeceras = new Headers();
 
+var miInit = { method: 'GET',
+               headers: misCabeceras,
+               body:data };
+
+fetch('url',miInit)
+
+```
+aquí vemos un ejemplo de como podriamos hacer el envio de una petición post y adjunto datos dentro de la propiedad **body**
+
+```javascript
+var url = 'https://example.com/profile';
+var data = {username: 'example'};
+
+fetch(url, {
+  method: 'POST', // or 'PUT'
+  body: JSON.stringify(data), // data can be `string` or {object}!
+  headers:{
+    'Content-Type': 'application/json'
+  }
+}).then(res => res.json())
+.catch(error => console.error('Error:', error))
+.then(response => console.log('Success:', response));
+
+```
+### JSON.stringify()
+El método JSON.stringify() convierte un objeto o valor de JavaScript en una cadena de texto JSON
+
+```javascript
+
+console.log(JSON.stringify({ x: 5, y: 6 }));
+// expected output: "{"x":5,"y":6}"
+JSON.stringify({});                    // '{}'
+JSON.stringify(true);                  // 'true'
+JSON.stringify('foo');                 // '"foo"'
+JSON.stringify([1, 'false', false]);   // '[1,"false",false]'
+JSON.stringify([NaN, null, Infinity]); // '[null,null,null]'
+JSON.stringify({ x: 5 });              // '{"x":5}'
+
+```
 # Post
 dentro de las peticiones que vamos a realizar es posible que queramos también solicitar el registro de información lo que implica enviar la información necesaría.
 Para esto Fetch nos brinda un conjunto de caracteristicas que nos va a permitir manejar este escenario de una manera muy sencilla.
 
-para eso debemos de conocer el objto FormData
 
-## FormData
+```javascript
+var formDataRegistro=new FormData(document.getElementById('registro'));
 
-Los objetos FormData le permiten compilar un conjunto de pares clave/valor para enviar mediante XMLHttpRequest. Están destinados principalmente para el envío de los datos del formulario, pero se pueden utilizar de forma independiente con el fin de transmitir los datos tecleados.
-
-### Creación de un objeto FormData desde ceroSección
-Usted mismo puede construir un objeto FormData instanciándolo y después añadiendo campos a la instancia usando su método  append() , tal y como se muestra:
+fetch('http://sminnova.com/demo/registro.php', {
+  method: 'POST',
+  body: formDataRegistro
+})
+.then(response => response)
+.catch(error => console.error('Error:', error))
+.then(response => console.log('Success:', response));
+```
