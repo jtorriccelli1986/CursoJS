@@ -105,3 +105,18 @@ fetch( url )
     .then( data => console.log( data ) );
 
 ````
+
+
+
+# Post
+dentro de las peticiones que vamos a realizar es posible que queramos también solicitar el registro de información lo que implica enviar la información necesaría.
+Para esto Fetch nos brinda un conjunto de caracteristicas que nos va a permitir manejar este escenario de una manera muy sencilla.
+
+para eso debemos de conocer el objto FormData
+
+## FormData
+
+Los objetos FormData le permiten compilar un conjunto de pares clave/valor para enviar mediante XMLHttpRequest. Están destinados principalmente para el envío de los datos del formulario, pero se pueden utilizar de forma independiente con el fin de transmitir los datos tecleados.
+
+### Creación de un objeto FormData desde ceroSección
+Usted mismo puede construir un objeto FormData instanciándolo y después añadiendo campos a la instancia usando su método  append() , tal y como se muestra:
