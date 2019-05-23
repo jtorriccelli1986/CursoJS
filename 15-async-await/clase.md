@@ -2,7 +2,7 @@
 
 Las promesas en Javascript nos sirven como alternativa para el manejo de nuestras funciones callbacks en Javascript. Así mismo, nos permiten administrar procesos asíncronos de una forma sencilla y mejor. Sin embargo, mientras que las promesas son una mejor alternativa en lugar de utilizar funciones callback, siguen utilizando muchos then's lo que puede ocasionar que el código sea difícil de leer. Para esto podemos usar las llaves async y await de ES2017 y, simplificar el manejo de las promesas. 
 
-# Conceptos Básicos
+### Conceptos Básicos
 
 * **async** es una palabra reservada para declarar una función.
 * **await** es usada durante el manejo de la promesa.
@@ -11,7 +11,7 @@ Las promesas en Javascript nos sirven como alternativa para el manejo de nuestra
 * **async / await** ya se encuentran disponibles en la mayoría de los navegadores y en NodeJS.
 
 
-## Beneficios de Utilizar Async/Await
+### Beneficios de Utilizar Async/Await
 
 * Tu código es más simple y preciso.
 * El debugeo es más fácil ya que son menos callbacks.
@@ -41,7 +41,7 @@ var promesa = obtenerContenido().then(...);
 
 ```
 
-### declaración de Async
+### Declaración de Async
 
 
 ```javascript
