@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+var formData = new FormData();
+
+formData.append("usuario", "admin");
+formData.append("pass", 123456);
+
+
+	let config={
+		method:"POST",
+		body:formData
+	}
+	fetch("http://sminnova.com/demo/login.php?V3",config)
+	.then((data)=>{return data.json()})
+	.then(data=>{
+		console.log(data)
+	})
+
+</script>

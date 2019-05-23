@@ -1,0 +1,9 @@
+Desarrollar un modal  que evalue si el usuario se ha logeado anteriormente y muestre un mensaje de bienvenida o solicite la contraseña
+
+El Modal debe contar con el bloqueo de 2 minutos luego de 3 intentos fallidos
+
+al ingresar a la plataforma se debe contar con el listado de sitios disponbiles (validar si existe una consulta previa de datos para no realizar el llamado)
+
+Agregar sección de mis sitios favoritos.
+
+
