@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+	function* mostrar(){
+		yield 1;
+		yield 1+1;
+		yield 1+5;
+	}
+/*
+	let listado=mostrar();
+	console.log(listado.next());
+	console.log(listado.next());
+	console.log(listado.next());
+*/
+
+	function* verdato(valor){
+		yield valor;
+		yield valor+1;
+		yield valor+5;
+	}
+
+	let datos=verdato(4);
+	console.log(datos.next());
+	console.log(datos.next());
+	console.log(datos.next());
+</script>
