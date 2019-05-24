@@ -160,7 +160,7 @@ Esto se hace por que al encapsular el objeto entre paréntesis declaramos que la
 
 
 
-## El objeto This
+## Palabra reserva This
  
 La palabra clave this tiene en Javascript un comportamiento diferente al de otros lenguajes pero por lo general, su valor hace referencia al propietario de la función que la está invocando o en su defecto, al objeto donde dicha función es un método. pero debe estar referenciada a un objeto, en caso no tenga un objeto de referencai sera hara referencia al objeto window;
 

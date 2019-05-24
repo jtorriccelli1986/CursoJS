@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+
+function calculo () {
+  var counter = 0;
+  return function () {counter += 1; return counter}
+}
+
+
+let calculo1=calculo();
+console.log(calculo1());
+console.log(calculo1());
+console.log(calculo1());
+
+
+
+
+	function tarea1(){
+		let contador=0;
+		
+		function agregar(){
+			return contador++;	
+		}
+		return agregar()
+	}
+
+
+
+	function creaFunc() {
+  	var nombre = "Mozilla";
+  		function muestraNombre() {
+   		 alert(nombre);
+  		}
+  		return muestraNombre;
+	}
+
+ let nuevo=creaFunc();
+nuevo();
+
+
+function inicia() {
+  var nombre = "Mozilla"; // 'nombre' es una variable local creada por la función 'inicia'
+  function muestraNombre() { // 'muestraNombre' es una función interna (un closure)
+    alert(nombre); // dentro de esta función usamos una variable declarada en la función padre
+  }
+  muestraNombre();
+}
+inicia(); 
+
+
+</script>
