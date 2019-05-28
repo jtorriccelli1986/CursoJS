@@ -10,10 +10,40 @@
 
 <script type="text/javascript">
 	
-	class persona{
-		let nombre="juan carlos";
-		listado(){
-			console.log("accediendo a listado");
+	class Persona{
+		constructor(name){
+			this.name=name;
+		}
+
+		mostar(){
+			console.log(this.name);
+		}
+		static alerta(){
+			console.log("alerta desde aquí");
 		}
 	}
+
+
+	class Estudiante extends Persona{
+		constructor(name,rol){
+			super(name);
+			this.rol=rol;
+		}
+		ver(){
+			console.log(this.name);
+			console.log(this.rol);
+		}
+		show(){
+			this.mostar();
+		}
+
+	}
+
+	let obj=new Persona("JC");
+	//obj.mostar();
+
+	let obj2=new Estudiante("JC","ADMIN");
+	obj2.show();
+	//obj2.show();
+	//Estudiante.alerta();
 </script>
