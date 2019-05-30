@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+const alumno = {
+	nombre: "JC",
+	apellido: "RT",
+	edad: 30,
+	calcular:function(){
+		console.log("hola");
+	}
+}
+alumno.nombre
+alumno["nombre"]  = "Ivan"
+
+
+const manejador = {
+	get(objetivo, propiedad) {
+		
+		return objetivo[propiedad].toUpperCase();
+
+	},
+	set(objetivo, propiedad, valor) {
+		
+		if(propiedad=="edad") {
+			if(valor<=0) {
+				throw new TypeError("No es un número")
+			} else {
+				objetivo[propiedad] = valor
+			}
+		} else {
+			objetivo[propiedad] = valor.toUpperCase()
+		}
+	},
+	
+}
+
+
+
+let acciones={
+	targetF:function (data) { 
+	  return 'I am the target'+data
+	}	
+}
+/*let targetF = function (data) { 
+  return 'I am the target'+data
+}*/
+let handlerF = {
+  apply (receiver, ...args) {
+    return 'I am the proxy'+args
+  }
+};
+
+let p = new Proxy(acciones.targetF, handlerF)
+
+console.log(acciones.targetF("JC"))  // I am the target
+console.log(p("JC",23))  // I am the proxy
+
+
+
+</script>

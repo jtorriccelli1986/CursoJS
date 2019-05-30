@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Realizar una validador que permitar manejar el valor ingresado en la fecha que no sea mayor a 50 años</h1>
+</body>
+</html>
+
+<script type="text/javascript">
+	let validador={
+		set:function(obj,propiedad,valor){
+			if(propiedad=="edad"){
+				if(valor>0 && valor<50){
+
+				}	
+				else{
+					throw new RangeError("valor no permitido");
+				}
+			}
+		
+			obj[propiedad]=valor;
+
+		}
+	}
+
+	let persona=new Proxy({},validador);
+	persona.nombre="JC";
+	try{
+		persona.edad=400;
+	}
+	catch(e){
+		console.log(e.name,e.message);
+	}
+	console.log(persona.nombre);
+
+
+</script>

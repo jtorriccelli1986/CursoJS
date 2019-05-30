@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+	let mapa=new Map();
+	mapa.set("nombre","Juan")
+	mapa.set("apellido","RT")
+	mapa.set("edad",10)
+
+	console.log(mapa);
+	//console.log(mapa.get("nombre"));
+
+	//console.log(mapa.has("apellido"));
+
+	for(let item of mapa.values()){
+		console.log(item);
+	}
+
+	for(let item of mapa.keys()){
+		console.log(item);
+	}
+
+	for(let [key,value] of mapa){
+		console.log(key + "="+value);
+	}
+
+
+	console.log(mapa.get("edad"));
+	mapa.delete("edad");
+
+	console.log(mapa.get("edad"));
+</script>
