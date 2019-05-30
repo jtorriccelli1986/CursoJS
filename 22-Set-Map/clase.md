@@ -84,3 +84,14 @@ Algo que puede suceder mucho en la ejecución de código es que queramos pasar d
 var set = new Set([1,2,3]); // {1,2,3} genera un Set desde un Array
 var arr = Array.from(set);//[1,2,3] genera un Array desde un Set
 ´´´
+
+para poder recorrer un set pode usar las siguientes maneras:
+
+´´´javascript
+for (let item of mySet) console.log(item);
+
+for (let item of mySet.keys()) console.log(item);
+
+for (let item of mySet.values()) console.log(item);
+
+´´´javascript
